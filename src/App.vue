@@ -1,24 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 mx-auto">
+          <formControl v-model="search"></formControl>
+        </div>
+      </div>
+      <div class="row">
+        <todoList class="col-6 text-left mx-auto" v-bind:searching="search">
+          
+        </todoList>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import todoList from "@/components/list.vue";
+import formControl from "@/components/form.vue";
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    formControl,
+    todoList
+  },
+  data() {
+    return {
+      search: {},
+      kitap:"fatihEmre"
+    };
+  },
+  created() {
+    // eslint-disable-next-line no-console
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
