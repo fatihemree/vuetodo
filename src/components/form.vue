@@ -43,22 +43,18 @@ export default {
 
       if (this.name == "" && this.check == false) {
         this.$emit("input", "");
-        // eslint-disable-next-line no-console
-        console.log("if")
       } else if (this.name != "" && this.check == true) {
-                // eslint-disable-next-line no-console
-                console.log("if else")
         this.$emit("input", { "userId": this.name ,"completed": true });
       }
       else if (this.name=="" && this.check==true) {
          this.$emit("input", {"completed": true });
       }
       else{
-                // eslint-disable-next-line no-console
-                console.log("else")
-
         this.$emit("input", {"userId":this.name});
       }
+
+      // eslint-disable-next-line no-console
+      
     }
   }
 };

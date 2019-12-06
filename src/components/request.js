@@ -28,10 +28,9 @@ export const request = {
             }
           })
         document.querySelector(".todoTable").innerHTML = "";
+         this.userList = [];
       },
       deep: true
-    },
-
-
+    }
   }
 }

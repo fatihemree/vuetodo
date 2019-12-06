@@ -7,9 +7,17 @@
         </div>
       </div>
       <div class="row">
-        <todoList class="col-6 text-left mx-auto" v-bind:searching="search">
-          
-        </todoList>
+        <todoList
+          class="col-6 text-left mx-auto shadow-sm rounded animated"
+          v-bind:searching="{'userId':search.userId,'completed':false}"
+        >Task</todoList>
+
+        <todoList
+          class="col-6 text-left mx-auto shadow-sm rounded animated"
+          :class="[slide=search.completed ? 'slideInRight' : 'slideOutRight']"
+          v-show="search.completed"
+          v-bind:searching="{'userId':search.userId,'completed':true}"
+        >Completed</todoList>
       </div>
     </div>
   </div>
@@ -27,22 +35,11 @@ export default {
   data() {
     return {
       search: {},
-      kitap:"fatihEmre"
+      slide: "slideInRight"
     };
-  },
-  created() {
-    // eslint-disable-next-line no-console
   }
 };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
